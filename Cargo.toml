@@ -1,0 +1,27 @@
+[package]
+name = "mdns-handler"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+simple-dns = "0.4.5"
+net2 = "0.2.37"
+anyhow = "1.0.56"
+
+
+[lib]
+name = "mdns_handler"
+path = "src/lib.rs"
+
+[[bin]]
+name = "mdns_test_runner"
+path = "src/main.rs"
+
+[profile.release]
+lto = true
+opt-level = 'z'
+panic = 'abort'
+codegen-units = 1
+strip = true
